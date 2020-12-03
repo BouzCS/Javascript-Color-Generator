@@ -1,3 +1,3 @@
-function{
+function hello() {
     console.log('ez');
 };

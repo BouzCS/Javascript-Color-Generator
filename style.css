@@ -4,7 +4,7 @@
     padding: 0px;
 }
 section {
-    height: 100vh;
+    max-height: 200vh;
     background-color: rgb(74, 7, 136);
     font-family: sans-serif;
 }
@@ -19,7 +19,7 @@ section {
     transition: opacity 0.5s ease;
 }
 .header h1{
-    color: azure;
+    color: rgb(225, 247, 247);
     width: 100px;
     height: 100px;
     padding:15px;
@@ -29,16 +29,21 @@ section {
 .grid-container {
     
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
-    margin : 50px;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    grid-gap: 5px;
+    
+
+    align-content: center;
 }
   
 .grid-container > div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
+    border:none;
+    border-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    height: 300px;
+    width: 300px;
+    margin:10px;
   }

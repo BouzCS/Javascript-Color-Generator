@@ -5,12 +5,10 @@
 }
 section {
     max-height: 200vh;
-    background-color: rgb(74, 7, 136);
+    background-color: rgb(222, 245, 16);
     font-family: sans-serif;
 }
 .header{
-    
-
     height: 15vh;
     display : flex;
     flex-direction: column;
@@ -23,8 +21,72 @@ section {
     width: 100px;
     height: 100px;
     padding:15px;
-    background: rgb(172, 126, 214);
+    background: rgb(136, 136, 134);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1.allo{
+    transition: opacity 0.5s ease 0.5s;
+    animation-name: coloor;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    
+    
+}
+@keyframes coloor{
+    0%  {background:rgb(136, 136, 134);color: rgb(225, 247, 247);width:100px;margin: 50px;}
+    25%  {background:rgb(225, 247, 247);color: rgb(136, 136, 134);width:150px;}
+    50%  {background:rgb(136, 136, 134);color: rgb(225, 247, 247);width:100px;margin: 50px;}
+    75%  {background:rgb(225, 247, 247);color: rgb(136, 136, 134);width:150px;}
+    100% {background:rgb(136, 136, 134);color:rgb(225, 247, 247);width:100px;margin: 50px;}
+}
+.h2-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 100px;
+    background: rgb(136, 136, 134);
+    margin:auto;
+    
+}
+.h2-container > div{
+    font-size: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(225, 247, 247);
+    
+    
+}
+.color-container {
+    display: flex;
+    width:auto;
+    justify-content: center;
+
+}
+.color-container > div {
+    border-radius: 100px;
+    background-color:rgb(99, 111, 145);
+    align-items: center;
+    height:100px;
+    width: 100px;
+    margin:30px;
+}
+.color-container > .n1 {
+    background-color:azure;
+}
+.color-container > .n2 {
+    background-color:white;
+}
+.color-container > .n3 {
+    background-color:rgb(125, 238, 238);
+}
+.color-container > .n4 {
+    background-color:rgb(53, 79, 224);
+}
+.color-container > .n5 {
+    background-color:rgb(106, 47, 184);
+}
+.color-container > .n6 {
+    background-color:rgb(221, 51, 221);
 }
 .grid-container {
     
@@ -32,8 +94,6 @@ section {
     grid-template-columns: auto auto auto;
     justify-content: center;
     grid-gap: 5px;
-    
-
     align-content: center;
 }
   
@@ -41,9 +101,16 @@ section {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     border:none;
-    border-color: rgb(255, 255, 255);
     border-radius: 3px;
     height: 300px;
     width: 300px;
     margin:10px;
   }
+div.fadeOut{
+    opacity: 0;
+    transition: opacity 0.5s ease 0.5s;
+}
+div.fadeIn{
+    opacity: 1;
+    transition: opacity 0.5s ease 0.5s;
+}

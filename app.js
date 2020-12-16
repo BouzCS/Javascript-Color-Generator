@@ -18,7 +18,17 @@ const colorx = () => {
 
         });
     };
+    const clickedOn = () => {
+        const Btn = document.querySelector("div.color-container");
+        const gridx = document.querySelector(".grid-container");
+        Btn.addEventListener('click', () =>{
+            Btn.classList.remove('fadeIn');
+            Btn.classList.add("fadeOut");
+            gridx.classList.add("fadeIn");
+        })
+    }
 clickOn();
 showIn();
+clickedOn();
 };
 colorx();

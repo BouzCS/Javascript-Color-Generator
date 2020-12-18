@@ -34,12 +34,12 @@ const colorx = () => {
         const apply = document.querySelectorAll(".a1");
         
         cBtn.addEventListener('click', (event) => {
-            for (let i = 0; i < apply.length; i++) {
-                var idx = event.target.id;
-                var dd = document.getElementById(idx.toString());
-                var elem = window.getComputedStyle(dd, null).getPropertyValue("background-color"); 
-                console.log(elem);  
-                apply[i].style.backgroundColor = elem;
+            for (let i = 0; i < apply.length; i++) {    
+                    var idx = event.target.id;
+                    var dd = document.getElementById(idx.toString());
+                    var elem = window.getComputedStyle(dd, null).getPropertyValue("background-color"); 
+                    console.log(elem);  
+                    apply[i].style.backgroundColor = elem;
                 
             }
         

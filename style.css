@@ -109,8 +109,10 @@ h1.allo{
 div.fadeOut{
     opacity: 0;
     transition: opacity 0.5s ease 0.5s;
+    pointer-events: none;
 }
 div.fadeIn{
     opacity: 1;
     transition: opacity 0.5s ease 0.5s;
+    pointer-events:all;
 }

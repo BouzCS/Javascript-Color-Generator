@@ -18,6 +18,7 @@ const colorx = () => {
 
         });
     };
+    // fade in the grids
     const clickedOn = () => {
         const Btn = document.querySelector("div.color-container");
         const gridx = document.querySelector(".grid-container");
@@ -27,6 +28,24 @@ const colorx = () => {
             gridx.classList.add("fadeIn");
         })
     }
+    //Changing grids colors after choosing color
+    function randomOne() {
+        const cBtn = document.querySelector("div.color-container");
+        const apply = document.querySelectorAll(".a1");
+        
+        cBtn.addEventListener('click', (event) => {
+            for (let i = 0; i < apply.length; i++) {
+                var idx = event.target.id;
+                var dd = document.getElementById(idx.toString());
+                var elem = window.getComputedStyle(dd, null).getPropertyValue("background-color"); 
+                console.log(elem);  
+                apply[i].style.backgroundColor = elem;
+                
+            }
+        
+         });   
+    }
+randomOne();
 clickOn();
 showIn();
 clickedOn();

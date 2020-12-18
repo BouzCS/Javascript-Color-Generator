@@ -70,22 +70,22 @@ h1.allo{
     width: 100px;
     margin:30px;
 }
-.color-container > .n1 {
+.color-container > #n1 {
     background-color:azure;
 }
-.color-container > .n2 {
+.color-container > #n2 {
     background-color:white;
 }
-.color-container > .n3 {
+.color-container > #n3 {
     background-color:rgb(125, 238, 238);
 }
-.color-container > .n4 {
+.color-container > #n4 {
     background-color:rgb(53, 79, 224);
 }
-.color-container > .n5 {
+.color-container > #n5 {
     background-color:rgb(106, 47, 184);
 }
-.color-container > .n6 {
+.color-container > #n6 {
     background-color:rgb(221, 51, 221);
 }
 .grid-container {

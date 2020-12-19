@@ -1,5 +1,5 @@
 const colorx = () => {
-    alert('If you wanna reload press the <<Color Pad.>> on TOP enjoy the app!');
+    alert('If you wanna reload press the <<Color Pad.>> on TOP enjoy the app!')
     const clickOn = () => {
         const Btn = document.querySelector(".header h1");
         Btn.addEventListener('mousemove', () => {

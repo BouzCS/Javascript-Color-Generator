@@ -5,7 +5,7 @@
 }
 
 section {
-    max-height: 100vh;
+    max-height: 150vh;
     background: #2f2f2b;
     font-family: sans-serif;
 }
@@ -49,6 +49,7 @@ h1.allo{
     height: 100px;
     background: #ff7129;
     margin:auto;
+    position: relative;
     
 }
 .h2-container > div{
@@ -97,11 +98,9 @@ h1.allo{
     justify-content: center;
     grid-gap: 10px;
     align-content: center;
-    margin-bottom: 50px;
 }
   
 .grid-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     border:none;
     border-radius: 3px;

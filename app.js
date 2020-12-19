@@ -1,5 +1,5 @@
 const colorx = () => {
-    alert('If you wanna reload press the <<Color Pad.>> on TOP enjoy the app!')
+    //alert('If you wanna reload press the <<Color Pad.>> on TOP enjoy the app!');
     const clickOn = () => {
         const Btn = document.querySelector(".header h1");
         Btn.addEventListener('mousemove', () => {
@@ -29,23 +29,114 @@ const colorx = () => {
             gridx.classList.add("fadeIn");
         })
     }
+     //funtion getting rgb values
+    function getIt(elm) {
+        var arr1 = elm.split('');
+        arr1.splice(0,4);
+        arr1.pop();
+        var values = (arr1.join('')).split(',');
+        return values;
+    }
+    //rgb function
+    function rgbx(r, g, b){
+        return "rgb("+r+","+g+","+b+")";
+    }
+    //rgb adding numbers
+    function addNum(num,i){
+        var n = parseInt(num);
+        if ( n < 255)
+        {
+           return n = n + i*15;
+        }
+        else if ( n=>255 ) { 
+        return n;
+        }
+    }
+
+    //Substract the number
+    function subNum(num,i){
+        var n = parseInt(num);
+        if ( n > 0)
+        {
+           return n = n - i*15;
+        }
+        else if ( n==0 ) { 
+        return n;
+        }
+    }
+    //Average adding to the number
+    function avgNum(num,i){
+        var n = parseInt(num);
+        if ( n > 0)
+        {
+           return n = n - i*7;
+        }
+        else if ( n==0 ) { 
+        return n;
+        }
+
+    }
     //Changing grids colors after choosing color
     function randomOne() {
         const cBtn = document.querySelector("div.color-container");
         const apply = document.querySelectorAll(".a1");
         
         cBtn.addEventListener('click', (event) => {
-            for (let i = 0; i < apply.length; i++) {    
-                    var idx = event.target.id;
-                    var dd = document.getElementById(idx.toString());
-                    var elem = window.getComputedStyle(dd, null).getPropertyValue("background-color"); 
-                    console.log(elem);  
-                    apply[i].style.backgroundColor = elem;
-                
+            for (let i = 0; i < apply.length; ++i) {    
+                    const idx = event.target.id;
+                    const dd = document.getElementById(idx.toString());
+                    const elem = window.getComputedStyle(dd, null).getPropertyValue("background-color"); 
+                    var elm = getIt(elem);
+                    var colorChanger = rgbx( addNum(elm[0],i), addNum(elm[1],i), addNum(elm[2],i));
+                    console.log(colorChanger);
+                    apply[i].style.backgroundColor = colorChanger;
             }
-        
          });   
     }
+
+    //Changing grids after 2nd choice
+    function randomTwo(){
+        const Btn = document.querySelector('.grid-container');
+        const apply = document.querySelectorAll(".a1")
+        
+        Btn.addEventListener("click", (event) => {
+            const idx = event.target.id;
+            const elem = document.getElementById(idx.toString());
+            const colorValue = window.getComputedStyle(elem, null).getPropertyValue("background-color");
+            console.log(colorValue);
+            
+            var elm = getIt(colorValue);
+        if ( (elm[0] > 129 || elm[0] < 256) && (elm[1] > 0 || elm[1] < 256) && (elm[2]==0)){
+            for (let i = 0; i < apply.length ; ++i) {
+                var colorChanger = rgbx( addNum(elm[0],i), subName(elm[1],i), avgNum(elm[2],i));
+                //
+                apply[i].style.backgroundColor = colorChanger;
+            }
+            }
+        else if ((elm[0] > 129 || elm[0] < 256) && (elm[1] ==0) && (elm[2]> 0 || elm[1] < 256)){
+            for (let i = 0; i < apply.length ; ++i) {
+                var colorChanger = rgbx( subNum(elm[0],i), avgNum(elm[1],i), addNum(elm[2],i));
+                //
+                apply[i].style.backgroundColor = colorChanger;
+            }
+        }
+        else if ((elm[0] > 0 || elm[0] < 129) && (elm[1] >0 || elm[1] < 256) && (elm[2]==255)){
+            for (let i = 0; i < apply.length ; ++i) {
+                var colorChanger = rgbx( subNum(elm[0],i), addNum(elm[1],i), avgNum(elm[2],i));
+                //
+                apply[i].style.backgroundColor = colorChanger;
+            }
+        }
+        else if ((elm[0] > 0 || elm[0] < 129) && (elm[1] ==255) && (elm[2]> 0 || elm[2] < 256)){
+            for (let i = 0; i < apply.length ; ++i) {
+                var colorChanger = rgbx( addNum(elm[0],i), avgNum(elm[1],i), subNum(elm[2],i));
+                //
+                apply[i].style.backgroundColor = colorChanger;
+            }
+        }
+        })
+    }
+randomTwo();
 randomOne();
 clickOn();
 showIn();

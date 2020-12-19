@@ -24,6 +24,7 @@ section {
     padding:15px;
     background: #ff7129;
     font-family: 'Langar', cursive;
+    position: fixed;
 }
 h1.allo{
     transition: opacity 0.5s ease 0.5s;

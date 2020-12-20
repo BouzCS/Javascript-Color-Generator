@@ -91,6 +91,36 @@ h1.allo{
 .color-container > #n6 {
     background-color:rgb(255, 179, 0);
 }
+.container{
+    display: flex;
+    background-color: #ff7129;
+    width: 300px;
+    height: 50px;
+    margin-left: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.rgb{
+    font-family:  'Langar', cursive;
+    font-size: 25px;
+    color: #fffffd;
+}
+.here{
+    display: flex;
+    width: 300px;
+    height: 50px;
+    background-color: #fffffd;
+    margin-left: 50px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+
+}
+.aa{
+    font-family:  'Langar', cursive;
+    
+
+}
 .grid-container {
     
     display: grid;

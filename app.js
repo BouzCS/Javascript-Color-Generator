@@ -9,13 +9,19 @@ const colorx = () => {
     }
     //showing colors grids
     const showIn = () => {
-        const playBtn = document.querySelector(".h2-container div");
+        const a1 = document.querySelector(".container");
+        const a2 = document.querySelector(".rgb");
+        const a3 = document.querySelector(".here");
+        const playBtn = document.querySelector(".h2-container");
         const colorContainer = document.querySelector(".color-container");
         const mainUp = document.querySelector(".mainUp");
         playBtn.addEventListener("click", () =>{
             console.log("work0");
             mainUp.classList.add("fadeOut");
             colorContainer.classList.add("fadeIn");
+            a1.classList.add("fadeIn");
+            a2.classList.add("fadeIn");
+            a3.classList.add("fadeIn");
 
         });
     };
@@ -98,21 +104,6 @@ const colorx = () => {
             }
         }
     }
-    //Failure is a great teacher!
-    /*/function avgNum2(num,i){
-        var n = parseInt(num);
-        if (n > 0 && n<128){
-
-            return n = n - i*2;
-            }
-            else if ( n==0 && n==255) { 
-            return n;
-            }
-        
-        else{
-            return n = n + i*2
-        }
-    }/*/
     
     //Changing grids colors after choosing color
     function randomOne() {
@@ -174,13 +165,36 @@ const colorx = () => {
             }
             else {
                 for (let i = 0; i < apply.length ; ++i) {
-                    var colorChanger = rgbx( avgNum(elm[0],elm[0],i), avgNum(elm[1],elm[0],i), addNum2(elm[2],i));
+                    var colorChanger = rgbx( avgNum(elm[0],elm[0],i), avgNum(elm[1],elm[0],i), subNum(elm[2],i));
                     //
                     apply[i].style.backgroundColor = colorChanger;
             }
         }
         })
     }
+    //showing rgb code on the left side
+    function showRgb(){
+        const a1 = document.querySelector('.grid-container');
+        const a2 = document.querySelector('div.color-container');
+        var a3 = document.querySelector(".aa");
+        a1.addEventListener("click", (event) =>{
+            const idx = event.target.id;
+            const elem = document.getElementById(idx.toString());
+            const colorValue = window.getComputedStyle(elem, null).getPropertyValue("background-color");
+            a3.innerHTML = getIt(colorValue).toString();
+            console.log('work1')
+        })
+        a2.addEventListener("click", (event) =>{
+            const idx = event.target.id;
+            const elem = document.getElementById(idx.toString());
+            const colorValue = window.getComputedStyle(elem, null).getPropertyValue("background-color");
+            a3.innerHTML = getIt(colorValue).toString();
+            console.log('work2')
+        })
+    }
+    
+  
+showRgb();
 randomTwo();
 randomOne();
 clickOn();

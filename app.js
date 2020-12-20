@@ -46,7 +46,18 @@ const colorx = () => {
         var n = parseInt(num);
         if ( n < 255)
         {
-           return n = n + i*15;
+           return n = n + i*14;
+        }
+        else if ( n=>255 ) { 
+        return n;
+        }
+    }
+    //rgb adding num for grids
+    function addNum2(num,i){
+        var n = parseInt(num);
+        if ( n < 255)
+        {
+           return n = n + i*5;
         }
         else if ( n=>255 ) { 
         return n;
@@ -58,24 +69,51 @@ const colorx = () => {
         var n = parseInt(num);
         if ( n > 0)
         {
-           return n = n - i*15;
+           return n = n - i*5;
         }
         else if ( n==0 ) { 
         return n;
         }
     }
     //Average adding to the number
-    function avgNum(num,i){
+    function avgNum(num,num1,i){
         var n = parseInt(num);
-        if ( n > 0)
-        {
-           return n = n - i*7;
+        var r= parseInt(num1);
+        if (r>128){
+            if ( n > 0)
+            {
+            return n = n - i*2;
+            }
+            else if ( n==0 && n==255 ) { 
+            return n;
+            }
         }
-        else if ( n==0 ) { 
-        return n;
+        else{
+            if ( n > 0)
+            {
+            return n = n + i*2;
+            }
+            else if ( n==0 && n==255 ) { 
+            return n;
+            }
         }
-
     }
+    //Failure is a great teacher!
+    /*/function avgNum2(num,i){
+        var n = parseInt(num);
+        if (n > 0 && n<128){
+
+            return n = n - i*2;
+            }
+            else if ( n==0 && n==255) { 
+            return n;
+            }
+        
+        else{
+            return n = n + i*2
+        }
+    }/*/
+    
     //Changing grids colors after choosing color
     function randomOne() {
         const cBtn = document.querySelector("div.color-container");
@@ -106,32 +144,39 @@ const colorx = () => {
             console.log(colorValue);
             
             var elm = getIt(colorValue);
-        if ( (elm[0] > 129 || elm[0] < 256) && (elm[1] > 0 || elm[1] < 256) && (elm[2]==0)){
-            for (let i = 0; i < apply.length ; ++i) {
-                var colorChanger = rgbx( addNum(elm[0],i), subName(elm[1],i), avgNum(elm[2],i));
-                //
-                apply[i].style.backgroundColor = colorChanger;
+            if ( (elm[0] > 129 || elm[0] < 256) && (elm[1] > 0 || elm[1] < 256) && (elm[2]==0)){
+                for (let i = 0; i < apply.length ; ++i) {
+                    var colorChanger = rgbx( addNum2(elm[0],i), subNum(elm[1],i), avgNum(elm[2],elm[0],i));
+                    //
+                    apply[i].style.backgroundColor = colorChanger;
+                }
+                }
+            else if ((elm[0] > 129 || elm[0] < 256) && (elm[1] ==0) && (elm[2]> 0 || elm[1] < 256)){
+                for (let i = 0; i < apply.length ; ++i) {
+                    var colorChanger = rgbx( subNum(elm[0],i), avgNum(elm[1],elm[0],i), addNum2(elm[2],i));
+                    //
+                    apply[i].style.backgroundColor = colorChanger;
+                }
             }
+            else if ((elm[0] > 0 || elm[0] < 129) && (elm[1] >0 || elm[1] < 256) && (elm[2]==255)){
+                for (let i = 0; i < apply.length ; ++i) {
+                    var colorChanger = rgbx( subNum(elm[0],i), addNum2(elm[1],i), avgNum(elm[2],elm[0],i));
+                    //
+                    apply[i].style.backgroundColor = colorChanger;
+                }
             }
-        else if ((elm[0] > 129 || elm[0] < 256) && (elm[1] ==0) && (elm[2]> 0 || elm[1] < 256)){
-            for (let i = 0; i < apply.length ; ++i) {
-                var colorChanger = rgbx( subNum(elm[0],i), avgNum(elm[1],i), addNum(elm[2],i));
-                //
-                apply[i].style.backgroundColor = colorChanger;
+            else if ((elm[0] > 0 || elm[0] < 129) && (elm[1] ==255) && (elm[2]> 0 || elm[2] < 256)){
+                for (let i = 0; i < apply.length ; ++i) {
+                    var colorChanger = rgbx( addNum2(elm[0],i), avgNum(elm[1],elm[0],i), subNum(elm[2],i));
+                    //
+                    apply[i].style.backgroundColor = colorChanger;
+                }
             }
-        }
-        else if ((elm[0] > 0 || elm[0] < 129) && (elm[1] >0 || elm[1] < 256) && (elm[2]==255)){
-            for (let i = 0; i < apply.length ; ++i) {
-                var colorChanger = rgbx( subNum(elm[0],i), addNum(elm[1],i), avgNum(elm[2],i));
-                //
-                apply[i].style.backgroundColor = colorChanger;
-            }
-        }
-        else if ((elm[0] > 0 || elm[0] < 129) && (elm[1] ==255) && (elm[2]> 0 || elm[2] < 256)){
-            for (let i = 0; i < apply.length ; ++i) {
-                var colorChanger = rgbx( addNum(elm[0],i), avgNum(elm[1],i), subNum(elm[2],i));
-                //
-                apply[i].style.backgroundColor = colorChanger;
+            else {
+                for (let i = 0; i < apply.length ; ++i) {
+                    var colorChanger = rgbx( avgNum(elm[0],elm[0],i), avgNum(elm[1],elm[0],i), addNum2(elm[2],i));
+                    //
+                    apply[i].style.backgroundColor = colorChanger;
             }
         }
         })

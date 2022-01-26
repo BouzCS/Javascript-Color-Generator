@@ -7,4 +7,4 @@ This is a Javascript Vanilla script that generate 9 colors by your following dec
 # DEMO
 ***
 
-### [Click me!](https://jsfiddle.net/8gf4Lxvp/)
+### [Click me!](https://jsfiddle.net/qt0ep2gj/)

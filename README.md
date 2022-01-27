@@ -9,7 +9,7 @@ This is a Javascript Vanilla script that generate 9 colors by your following dec
 
 ### :computer_mouse: [Click me!](https://jsfiddle.net/qt0ep2gj/)
 
-## :no_entry: Note : to return to main page click on the "Color Page." button.
+##### :no_entry: Note : to return to main page click on the "Color Page." button.
 
 
 # :camera_flash: Screenshots of the website
